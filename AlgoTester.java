@@ -6,7 +6,6 @@ public class AlgoTester {
 	private ArrayList<ITestable> algos = new ArrayList<ITestable>();
 	private int[] generated;
 	private int ARRAY_SIZE = 10;
-	private int S = 10;
 	
 	public boolean previewSequence = false;
 	
@@ -27,9 +26,6 @@ public class AlgoTester {
 		testALLAlgorithms();
 	}
 	
-	private void setArraySize(int n ) {
-		this.ARRAY_SIZE = n;
-	}
 	
 	
 	private void generateRandomArray() {
@@ -37,7 +33,7 @@ public class AlgoTester {
 		generated = new int[ARRAY_SIZE];
 		
 		for(int i = 0 ; i < ARRAY_SIZE; i++){
-			generated[i] = r.nextInt(ARRAY_SIZE+1);
+			generated[i] = r.nextInt(ARRAY_SIZE) + 1;
 		}	
 	}
 	
@@ -49,6 +45,9 @@ public class AlgoTester {
 	}
 	
 	private void testALLAlgorithms() {
+		
+		System.out.println("Testing with sample size of " + ARRAY_SIZE);
+		System.out.println("============================================\n");
 		
 		for(ITestable t : algos) {
 			int[] copy = new int[ARRAY_SIZE];
@@ -78,17 +77,20 @@ public class AlgoTester {
 		
 		System.out.println(algoName +" is sorting... ");
 		long startTime = System.currentTimeMillis();
-		int comparisons = t.call(arr);
+		long comparisons = t.call(arr);
 		long endTime = System.currentTimeMillis();
 		System.out.println(algoName +" done!");
 		
 		if(previewSequence)
 			printArr(arr);
 		
+		
 		System.out.println(algoName + " timing: " + (endTime - startTime) + " ms");
 		System.out.println("Key comparisons: " + comparisons);
 		System.out.println();
 		
 	}
+	
+	
 	
 }
