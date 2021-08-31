@@ -11,8 +11,14 @@ A simple tester to compare execution time for any algorithm.
 AlgoTester tester = new AlgoTester();
 ```
 ### 4) Call the addAlgo(ITestable t) function of AlgoTester and pass it an instance of your algorithm class
+```
+tester.addAlgo(new InsertionSort());
+```
 ### 5) Call startTest(int n) of AlgoTester, with n as the desired sample size.
-
+```
+// start test on all algorithms added with a randomly generated array of size 1000
+tester.startTest(1000);
+```
 ## Additional notes
 AlgoTester will generate a random array of unsorted numbers from range 1 - n and runs copies of this randomly generated array on all your sorting algorithms. At the end of the test, key comparisons as well as CPU run time will be shown for each algorithm.
 
