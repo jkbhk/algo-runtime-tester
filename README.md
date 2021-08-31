@@ -7,6 +7,9 @@ A simple tester to compare execution time for any algorithm.
 ### 1) Wrap your algorithm in a class 
 ### 2) Have your class implement ITestable
 ### 3) Create an instance of AlgoTester anywhere in your project
+```
+AlgoTester tester = new AlgoTester();
+```
 ### 4) Call the addAlgo(ITestable t) function of AlgoTester and pass it an instance of your algorithm class
 ### 5) Call startTest(int n) of AlgoTester, with n as the desired sample size.
 
