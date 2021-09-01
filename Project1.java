@@ -9,7 +9,8 @@ public class Project1 {
 		tester.addAlgo(new MergeSort());
 		tester.addAlgo(new HybridSort());
 		
-		tester.startTest(1000);
+		// start test with array size of 1000 and starting condition of 10 for all algorithms
+		tester.startTest(1000, 10);
 		
 	}
 		
