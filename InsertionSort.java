@@ -3,6 +3,10 @@ public class InsertionSort implements ITestable{
 	
 	private long comparisons = 0;
 	
+	public void setCondition(int c) {
+		
+	}
+	
 	public String getName() {
 		return "Insertion Sort";
 	}

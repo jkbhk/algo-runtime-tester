@@ -19,11 +19,11 @@ public class AlgoTester {
 		algos.add(t);
 	}
 	
-	public void startTest(int arraySize) {
+	public void startTest(int arraySize, int condition) {
 		
 		this.ARRAY_SIZE = arraySize;
 		generateRandomArray();
-		testALLAlgorithms();
+		testALLAlgorithms(condition);
 	}
 	
 	
@@ -44,7 +44,7 @@ public class AlgoTester {
 		}
 	}
 	
-	private void testALLAlgorithms() {
+	private void testALLAlgorithms(int condition) {
 		
 		System.out.println("Testing with sample size of " + ARRAY_SIZE);
 		System.out.println("============================================\n");
@@ -53,6 +53,8 @@ public class AlgoTester {
 			int[] copy = new int[ARRAY_SIZE];
 			copyArray(generated, copy);
 			
+			// set starting conditions(if any) before testing
+			t.setCondition(condition);
 			testAlgo(t,copy);
 		}
 		

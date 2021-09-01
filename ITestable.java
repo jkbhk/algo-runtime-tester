@@ -1,6 +1,7 @@
 
 public interface ITestable {
 
-	public int call(int[] arr);
+	public void setCondition(int c);
+	public long call(int[] arr);
 	public String getName();
 }

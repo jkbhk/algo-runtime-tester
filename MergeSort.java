@@ -3,6 +3,10 @@ public class MergeSort implements ITestable{
 
 	private long comparisons = 0;
 	
+	public void setCondition(int c) {
+		
+	}
+	
 	public String getName() {
 		return "Merge Sort";
 	}

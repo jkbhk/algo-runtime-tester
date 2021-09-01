@@ -3,7 +3,11 @@ public class HybridSort implements ITestable{
 
 	long comparisons = 0;
 	
-	private static final int S = 5;
+	private int S = 5;
+	
+	public void setCondition(int c) {
+		this.S = c;
+	}
 	
 	public long call(int[] arr) {
 		hybridSort(arr,0, arr.length-1 , S);
