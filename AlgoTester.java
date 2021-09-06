@@ -93,6 +93,81 @@ public class AlgoTester {
 		
 	}
 	
+	public void compare(ITestable a, ITestable b, int fromN, int toN, int interval, boolean multiply) {
+		
+		System.out.println("N"+"\t\t\t" +a.getName()+ "(comparisons)\t\t" + a.getName()+ "(ms)\t\t\t" + b.getName() + "(comparisons)\t\t\t" + b.getName()+"(ms)");
+		
+		long acomparisons = 0;
+		long bcomparisons = 0;
+		long atime;
+		long btime;
+	
+		
+		int[] temp1;
+		int[] temp2;
+		
+		if(multiply) {
+			
+			for(int n= fromN; n<=toN; n*=interval) {
+				
+				int[] reversed = new int[n];
+				reversed = generateRandomArray(n);
+				
+				temp1 = new int[n];
+				temp2 = new int[n];
+				
+				copyArray(reversed,temp1);
+				copyArray(reversed,temp2);
+				
+				
+				long startTime = System.currentTimeMillis();
+				acomparisons = a.call(temp1);
+				long endTime = System.currentTimeMillis();
+				atime = endTime - startTime;
+				
+				startTime = System.currentTimeMillis();
+				bcomparisons = b.call(temp2);
+				endTime = System.currentTimeMillis();
+				btime = endTime - startTime;
+			
+				
+				System.out.println(n+"\t\t\t" +acomparisons+ "\t\t\t\t\t" + atime+ "\t\t\t\t" + bcomparisons + "\t\t\t\t\t" + btime);
+				
+				
+			}
+		} else {
+			
+			for(int n= fromN; n<=toN; n+=interval) {
+				
+				int[] reversed = new int[n];
+				reversed = generateRandomArray(n);
+				
+				temp1 = new int[n];
+				temp2 = new int[n];
+				
+				copyArray(reversed,temp1);
+				copyArray(reversed,temp2);
+				
+				
+				long startTime = System.currentTimeMillis();
+				acomparisons = a.call(temp1);
+				long endTime = System.currentTimeMillis();
+				atime = endTime - startTime;
+				
+				startTime = System.currentTimeMillis();
+				bcomparisons = b.call(temp2);
+				endTime = System.currentTimeMillis();
+				btime = endTime - startTime;
+			
+				
+				System.out.println(n+"\t\t\t" +acomparisons+ "\t\t\t\t\t" + atime+ "\t\t\t\t" + bcomparisons + "\t\t\t\t\t" + btime);
+				
+				
+			}
+		}
+		
+	}
+	
 	
 	
 }
